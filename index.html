@@ -1,23 +1,21 @@
-<!Doctype: HTML w/ Processing>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>My Processing Page</title>
+			<script type="text/javascript" src="processing.js"></script>
+      
+      
+      
+import java.awt.Point;
+import java.awt.MouseInfo;
 
-<html>
+java.awt.Insets insets;
+Point mouse, win;
 
-  <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Processing Demo</title>
-      <script type="text/javascript" src="js/processing.js"></script>
-  </head>
-  
-  <body>
-    <h1>Sync</h1>
-    <p>ADD DESCRIPTION HERE</p>
-    
-    <script type="text/processing">
-    
-     
-
+void setup() {
   size(768, 768);
-
+frame.pack();
   background(0);
   
 }
@@ -27,6 +25,9 @@ float h =0;
 
 void draw() {
   
+ 
+  //random squares blue
+    
     noStroke();
     float i;
     
@@ -35,13 +36,46 @@ void draw() {
     if (mousePressed && (mouseButton == LEFT))
     fill (450,0,0,60);
     rect(random(850), random(850),random(250),random(250));
-    if (mousePressed && (mouseButton == RIGHT))
-    frameRate(0);
-  }
+   // if (mousePressed && (mouseButton == RIGHT))
+    //frameRate(12);
+  //  else{
+   // frameRate(12);
+   setFrame();
+  if(insideFrame()) {
+    frameRate(12);;
+  } 
+  else {
+   frameRate(0);; 
+  }  
+}
 
-    </script>
-    <canvas id="sketch" style="border: 1px solid black;"></canvas>
-    
-  </body>
-  
-</html>
+//set position of frame
+void setFrame() 
+{  
+  mouse = MouseInfo.getPointerInfo().getLocation();
+  win = frame.getLocation();
+
+  if(!frame.isUndecorated()){
+    //add borders of window
+    insets = frame.getInsets();
+    win.x += insets.left;
+    win.y += insets.top;
+  }
+}
+
+boolean insideFrame() {
+  boolean in = false;
+  if(mouse.x-win.x >= 0 && width >= mouse.x-win.x)
+    if(mouse.y-win.y >= 0 && height >= mouse.y-win.y)
+      in = true;
+
+  return in;}
+      
+      </head>
+		<body>
+			<canvas id="mysketch3" data-processing-sources="mysketch3.pde"/></canvas>
+			<div id="coordinates">
+				x/y: <input type="textfield" id="xcoord"/>/<input type="textfield" id="ycoord"/>
+			</div>
+		</body>
+	</html>
