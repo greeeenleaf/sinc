@@ -1,90 +1,87 @@
-<!Doctype: HTML w/ Processing>
+<head>
+    <script type="text/javascript" src="js/processing.js"></script>
+</head>
 
-<html>
-
-  <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Processing Demo</title>
-      <script type="text/javascript" src="js/processing.js"></script>
-  </head>
-  
-  <body>
-    <h1>PUT YOUR TITLE HERE</h1>
-    <p>ADD DESCRIPTION HERE</p>
-    
-    <script type="text/processing">
-    
-   
-   
-   
-      import java.awt.Point;
-      import java.awt.MouseInfo;
-
-      java.awt.Insets insets;
-      Point mouse, win;
-
-          void setup() {
-            size(768, 768);
-          frame.pack();
-            background(0);
-
+<body>
+    <h1>Lets sync!</h1>
+        <div data-video="TdQz1J5HChg"
+        data-autoplay="1"
+        data-loop="1"
+        id="youtube-audio">
+        </div>
+        
+        
+       
+        <script type="text/processing">
+            
+                
+        void setup(){
+          size(700,500);
+          rectMode(CENTER); // rectMode(CENTER) interprets the first two parameters of rect() as the shape's center point (instead of the upper left corner).
+          noStroke();
+            background(255);
           }
-          float t =0;
-          float h =0;
-
-
-          void draw() {
-
-
-            //random squares blue
-
-              noStroke();
-              float i;
-
-              fill(0,0,450, random(60));
-              rect(random(850), random(850),random(450),random(450));
-              if (mousePressed && (mouseButton == LEFT))
-              fill (450,0,0,60);
-              rect(random(850), random(850),random(250),random(250));
-
-                 setFrame();
-                 if(insideFrame()) {
-                  frameRate(12);;
-                } 
-                  else {
-                   frameRate(0);; 
-                    }  
-                  }
-
-          //set position of frame
-          void setFrame() 
-          {  
-            mouse = MouseInfo.getPointerInfo().getLocation();
-            win = frame.getLocation();
-
-            if(!frame.isUndecorated()){
-              //add borders of window
-              insets = frame.getInsets();
-              win.x += insets.left;
-              win.y += insets.top;
-                }
-              }
-
-                  boolean insideFrame() {
-                    boolean in = false;
-                    if(mouse.x-win.x >= 0 && width >= mouse.x-win.x)
-                      if(mouse.y-win.y >= 0 && height >= mouse.y-win.y)
-                        in = true;
-
-                    return in;}
-
-  
-  
-  
-
-    </script>
-    <canvas id="sketch" style="border: 1px solid black;"></canvas>
+        
+        void draw(){
+          
+        
+           
+          pushMatrix();
+          translate(mouseX,mouseY);      // Moves the objects in the screen to the specified amount. 
+          rotate(radians(mouseX)); // Rotates objects in the window. Use radians() to specify the angle you want to rotate.  
+          fill(0,5);
+          rect(0,0,150,150);
+          popMatrix();
+          
+          if (keyPressed){
+            if (key == 's' || key == 'S'){
+            fill (450,0,0,60);
+             rect(random(850), random(850),random(250),random(250));
+            }
+          }
+          
+          if (keyPressed){
+            if (key == 'd' || key == 'D'){
+            fill (0,0,450,60);
+             rect(random(850), random(850),random(450),random(450));
+            }
+          }
+          
+          if (keyPressed){
+            if (key == 'q' || key == 'Q'){
+            fill (0,0,0,60);
+             rect(random(850), random(850),random(450),random(450));
+            }
+          }
+          if (keyPressed){
+            if (key == 'w' || key == 'W'){
+            fill (450,450,450,60);
+             rect(random(850), random(850),random(450),random(450));
+            }
+          }
+          if (keyPressed){
+            if (key == 'w' || key == 'W'){
+            fill (450,450,450,60);
+             rect(random(850), random(850),random(450),random(450));
+            }
+          }
+          if (key == 'c') {
+          beginRecord(PDF, "page_" + int(random(1000)) + ".pdf");
+          }
+          if (keyPressed){ 
+            if (key == 'a'|| key == 'A') {
+          fill(450,450,450);
+          rect(400,400,850,850);
+          }
+          }
+          }
+          
+        
+                
+                
+                
+                
+        </script>
     
-  </body>
-  
-</html>
+        <canvas id="sketch" style="border: 1px solid black;"></canvas>
+</body>
