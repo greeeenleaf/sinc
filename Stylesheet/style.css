@@ -1,0 +1,17 @@
+h1{
+  color: #5B5EA6;
+  font-family: helvetica;
+  font-size: 120px;
+}
+h2{
+    color: #92A8D1;
+    font-family: helvetica;
+}
+body{
+  background-color: SeaShell;
+}
+p{
+  color: #92A8D1;
+  font-family: helvetica;
+  font-size: 24px;
+}
