@@ -1,98 +1,110 @@
-<head>
+<!DOCTYPE hyml>
+<html>
+  <head>
+
     <script type="text/javascript" src="js/processing.js"></script>
     <link href="Stylesheet/style.css" rel="stylesheet" type="text/css">
-</head>
+    <link rel="stylesheet" href="https://use.typekit.net/fpe0ryh.css">
+  </head>
 
-<body>
-  
+  <body>
     <h1>Self sync</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/tQ4IqpLwn-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
-    <br>
-   
-    <h2>Please create a little drawing and take a screenshot for me! comand + shift + 4 (shortcut for mac users)</h2>
-    
-    <p> Press the drawing screen and then use your mouse and the following keys to draw</p>
-    <p> You have until the end of the song, please play it at the same time, on 3!</p>
-    <p> "q" = black rectangles</p>
-    <p> "w" = white rectangles</p>
-    <p> "s" = red rectangles</p>
-    <p> "d" = blue rectangles</p>
-    <p> "a" = restart</p>
-    <p> "c" = stop</p>
-    
-    <h3> Send them to me over slack please with a word or a phrase that came to your mind)</h3>
-        
-       
-        <script type="text/processing">
-            
-                
-        void setup(){
-          size(700,500);
-          rectMode(CENTER); // rectMode(CENTER) interprets the first two parameters of rect() as the shape's center point (instead of the upper left corner).
-          noStroke();
-            background(255);
-          }
-        
-        void draw(){
-          
-        
-           
-          pushMatrix();
-          translate(mouseX,mouseY);      // Moves the objects in the screen to the specified amount. 
-          rotate(radians(mouseX)); // Rotates objects in the window. Use radians() to specify the angle you want to rotate.  
-          fill(0,5);
-          rect(0,0,150,150);
-          popMatrix();
-          
-          if (keyPressed){
-            if (key == 's' || key == 'S'){
-            fill (450,0,0,60);
-             rect(random(850), random(850),random(250),random(250));
+    <h2>Hello, this is a short exercises aimed for you to have some effortless creative time. Enjoy!</h2>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/tQ4IqpLwn-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+  <div class="container">
+
+
+  <div class="processing">
+
+          <script type="text/processing">
+
+
+          void setup(){
+            size(700,500);
+            rectMode(CENTER); // rectMode(CENTER) interprets the first two parameters of rect() as the shape's center point (instead of the upper left corner).
+            noStroke();
+              background(255);
             }
-          }
-          
-          if (keyPressed){
-            if (key == 'd' || key == 'D'){
-            fill (0,0,450,60);
-             rect(random(850), random(850),random(450),random(450));
+
+          void draw(){
+
+
+
+            pushMatrix();
+            translate(mouseX,mouseY);      // Moves the objects in the screen to the specified amount.
+            rotate(radians(mouseX)); // Rotates objects in the window. Use radians() to specify the angle you want to rotate.
+            fill(0,5);
+            rect(0,0,150,150);
+            popMatrix();
+
+            if (keyPressed){
+              if (key == 's' || key == 'S'){
+              fill (450,0,0,60);
+               rect(random(850), random(850),random(250),random(250));
+              }
             }
-          }
-          
-          if (keyPressed){
-            if (key == 'q' || key == 'Q'){
-            fill (0,0,0,60);
-             rect(random(850), random(850),random(450),random(450));
+
+            if (keyPressed){
+              if (key == 'd' || key == 'D'){
+              fill (0,0,450,60);
+               rect(random(850), random(850),random(450),random(450));
+              }
             }
-          }
-          if (keyPressed){
-            if (key == 'w' || key == 'W'){
-            fill (450,450,450,60);
-             rect(random(850), random(850),random(450),random(450));
+
+            if (keyPressed){
+              if (key == 'q' || key == 'Q'){
+              fill (0,0,0,60);
+               rect(random(850), random(850),random(450),random(450));
+              }
             }
-          }
-          if (keyPressed){
-            if (key == 'w' || key == 'W'){
-            fill (450,450,450,60);
-             rect(random(850), random(850),random(450),random(450));
+            if (keyPressed){
+              if (key == 'w' || key == 'W'){
+              fill (450,450,450,60);
+               rect(random(850), random(850),random(450),random(450));
+              }
             }
-          }
-          if (key == 'c') {
-          beginRecord(PDF, "page_" + int(random(1000)) + ".pdf");
-          }
-          if (keyPressed){ 
-            if (key == 'a'|| key == 'A') {
-          fill(450,450,450);
-          rect(400,400,850,850);
-          }
-          }
-          }
-          
-        
-                
-                
-                
-                
-        </script>
-    
-        <canvas id="sketch" style="border: 1px solid black;"></canvas>
-</body>
+            if (keyPressed){
+              if (key == 'w' || key == 'W'){
+              fill (450,450,450,60);
+               rect(random(850), random(850),random(450),random(450));
+              }
+            }
+
+            if (keyPressed){
+              if (key == 'a'|| key == 'A') {
+            fill(450,450,450);
+            rect(400,400,850,850);
+            }
+            }
+            }
+
+
+          </script>
+
+
+          <canvas id="sketch" style="border: 1px solid black;"></canvas>
+        </div>
+        <div class="text">
+          <h2>Please create a little drawing and take a screenshot for me! comand + shift + 4 (shortcut for mac users)</h2>
+
+          <p> Press the drawing screen and then use your mouse and the following keys to draw</p>
+          <p> You have until the end of the song, please play it at the same time, on 3!</p>
+          <p> "q" = black rectangles</p>
+          <p> "w" = white rectangles</p>
+          <p> "s" = red rectangles</p>
+          <p> "d" = blue rectangles</p>
+          <p> "a" = restart</p>
+
+
+          <h3> Send them to me over slack please with a word or a phrase that came to your mind)</h3>
+        </div>
+  </div>
+  <!-- begin wwww.htmlcommentbox.com -->
+ <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24s08oCKlozkf95Q5hokxH31"+"&opts=16862&num=10&ts=1616001238433");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->
+  </body>
